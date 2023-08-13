@@ -1,38 +1,45 @@
-.App {
-  text-align: center;
+.chessboard-container {
+  width: 500px;
+  position: absolute;
+  top: 20%;
+  left: 32.5%;
+  margin: -25px 0 0 -25px;
+  background-color: #e78e00;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.chessboard-container .react-chessboard {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  margin: -25px 0 0 -25px;
+  background-color: #ff9d00;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.reset-button {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  position: absolute;
+  top: 15%;
+  left: 32.5%;
+  margin: -25px 0 0 -25px;
 }
 
-.App-link {
-  color: #61dafb;
+.chessboard-wrapper {
+  background-color: #141b2d;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  background-color: #f0d9b5;
+}
+
+.square-w {
+  background-color: #e8e8e8 !important; /* set the background color of white squares */
+}
+
+.square-b {
+  background-color: #1c1c1c !important; /* set the background color of black squares */
 }
