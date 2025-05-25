@@ -14,9 +14,9 @@ function App(){
 
     const data = { uci_move: lastMove};
     try {
-      const response = await axios.post('http://127.0.0.1:8000/make_move/', data);
+      const response = await axios.post('/make_move/', data);
       console.log(response.data);
-      const uci = response.data.engine_move;
+      const uci = response.data.data.engine_move;
       console.log(uci);
       
       const fr = uci.slice(0, 2);
@@ -41,7 +41,7 @@ function App(){
 
   function resetBoard() {
     setGame(new Chess());
-    axios.post('http://127.0.0.1:8000/reset_board/')
+    axios.post('/reset_board/')
       .then(response => {
         console.log(response.data)
       
