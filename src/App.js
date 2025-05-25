@@ -1,12 +1,40 @@
 import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Chess from "chess.js";
 import { Chessboard } from "react-chessboard";
 import "./App.css"; 
 import React, { useEffect } from 'react';
-import axios from 'axios';//
+import axios from 'axios';
+import InitialPage from './components/InitialPage';
+import './components/InitialPage.css';
 
-function App(){
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<InitialPage />} />
+        <Route path="/play" element={<ChessBoardPage />} />
+        <Route path="/rating" element={<h1>Rating Page (coming soon)</h1>} />
+        <Route path="/engine-match" element={<h1>Engine Match Page (coming soon)</h1>} />
+      </Routes>
+    </Router>
+  );
+}
+
+function ChessBoardPage() {
   const [game, setGame] = useState(new Chess());
+  const [fen, setFen] = useState('');
+  const [move, setMove] = useState('');
+  const [pgn, setPgn] = useState('');
+  const [isWhite, setIsWhite] = useState(true);
+  const [isBlack, setIsBlack] = useState(false);
+  const [isBoth, setIsBoth] = useState(false);
+  const [isEngine, setIsEngine] = useState(false);
+  const [isHuman, setIsHuman] = useState(false);
+  const [isWhiteEngine, setIsWhiteEngine] = useState(false);
+  const [isBlackEngine, setIsBlackEngine] = useState(false);
+  const [isWhiteHuman, setIsWhiteHuman] = useState(false);
+  const [isBlackHuman, setIsBlackHuman] = useState(false);
 
   async function getMovedj() {
     const moves = game.history();
